@@ -31,7 +31,7 @@ Postavka projekta :
 <p align="center">
 <img width="1161" height="761" alt="Scenarij2 drawio" src="https://github.com/user-attachments/assets/15e0c591-2e8a-42b1-9afa-9b848df29488" />
 <br>
-<em>*Slika 2: Scenarij 2* </em>
+<em>Slika 2: Scenarij 2 </em>
 </p>
 
 **Scenarij 2 :** Ovaj dijagram prikazuje dvosmjernu, sigurnu komunikaciju između klijenta (UE1) i servera (UE2), gdje su obje krajnje tačke povezane putem 5G modema. Svaka strana uspostavlja WireGuard tunel prema AMARI Callbox uređaju, koji djeluje kao centralna tačka za sigurno rutiranje saobraćaja. Na ovaj način je omogućena pouzdana i enkriptovana razmjena podataka između UE1 i UE2 preko mobilne mreže i interneta, uz izolaciju i zaštitu komunikacije.
