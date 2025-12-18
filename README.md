@@ -23,7 +23,7 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 
 ## Arhitektura sistema
 <p align="center">
-<img width="1036" height="187" alt="Scenarij1 drawio" src="https://github.com/user-attachments/assets/26bdc36d-c368-482d-abd9-78c74ea138d8" />
+<img width="1036" height="187" alt="Scenarij1 drawio" src="Slike Arhitekture/Scenarij1.drawio.png" />
 <br>
 <em>Slika 1: Scenarij 1 </em>
 </p>
@@ -31,7 +31,7 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 **Scenarij 1 :** Ovaj dijagram prikazuje komunikaciju između klijenta (UE1) i udaljenog servera (UE2). Klijent je povezan na 5G modem, koji dalje komunicira sa AMARI Callbox uređajem. AMARI Callbox uspostavlja siguran WireGuard tunel preko interneta prema serveru, omogućavajući pouzdanu i zaštićenu razmjenu podataka između krajnjih tačaka, bez obzira na javnu mrežnu infrastrukturu.
 
 <p align="center">
-<img width="1161" height="761" alt="Scenarij2 drawio" src="https://github.com/user-attachments/assets/15e0c591-2e8a-42b1-9afa-9b848df29488" />
+<img width="1161" height="761" alt="Scenarij2 drawio" src="Slike Arhitekture/Scenarij2.drawio.png" />
 <br>
 <em>Slika 2: Scenarij 2 </em>
 </p>
