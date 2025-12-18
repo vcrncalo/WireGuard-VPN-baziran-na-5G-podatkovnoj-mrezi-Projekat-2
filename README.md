@@ -1,9 +1,9 @@
 # Sistemi i servisi mobilnih telekomunikacija
-# Projekat 2 : WireGuard VPN baziran na 5G podatkovnoj mreži 
+## Projekat 2 : WireGuard VPN baziran na 5G podatkovnoj mreži 
 
 Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila Čengić, Emrah Dragolj, Denin Mehanović
 
-Postavka projekta : 
+## Postavka projekta : 
 
 • RP1: Dizajn WireGuard VPN-a baziranog na 5G podatkovnoj mreži, a koji uključuje različite scenarije:  
   (1) jedan WireGuard peer se nalazi unutar, a drugi izvan 5G mreže i  
@@ -19,7 +19,9 @@ Postavka projekta :
 
 • RP6: Izrada projektne dokumentacije i održavanje GitHub repozitorija.
 
-# Arhitektura sistema
+---
+
+## Arhitektura sistema
 <p align="center">
 <img width="1036" height="187" alt="Scenarij1 drawio" src="https://github.com/user-attachments/assets/26bdc36d-c368-482d-abd9-78c74ea138d8" />
 <br>
@@ -35,3 +37,5 @@ Postavka projekta :
 </p>
 
 **Scenarij 2 :** Ovaj dijagram prikazuje dvosmjernu, sigurnu komunikaciju između klijenta (UE1) i servera (UE2), gdje su obje krajnje tačke povezane putem 5G modema. Svaka strana uspostavlja WireGuard tunel prema AMARI Callbox uređaju, koji djeluje kao centralna tačka za sigurno rutiranje saobraćaja. Na ovaj način je omogućena pouzdana i enkriptovana razmjena podataka između UE1 i UE2 preko mobilne mreže i interneta, uz izolaciju i zaštitu komunikacije.
+
+---
