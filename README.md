@@ -23,7 +23,7 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 
 ## Arhitektura sistema
 <p align="center">
-<img width="1036" height="187" alt="Scenarij1 drawio" src="Slike Arhitekture/Scenarij1.drawio.png" />
+<img alt="Scenarij1 drawio" src="Slike/Scenarij1.drawio.png" />
 <br>
 <em>Slika 1: Scenarij 1 </em>
 </p>
@@ -31,7 +31,7 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 **Scenarij 1 :** Ovaj dijagram prikazuje komunikaciju između klijenta (UE1) i udaljenog servera (UE2). Klijent je povezan na 5G modem, koji dalje komunicira sa AMARI Callbox uređajem. AMARI Callbox uspostavlja siguran WireGuard tunel preko interneta prema serveru, omogućavajući pouzdanu i zaštićenu razmjenu podataka između krajnjih tačaka, bez obzira na javnu mrežnu infrastrukturu.
 
 <p align="center">
-<img width="1161" height="761" alt="Scenarij2 drawio" src="Slike Arhitekture/Scenarij2.drawio.png" />
+<img alt="Scenarij2 drawio" src="Slike/Scenarij2.drawio.png" />
 <br>
 <em>Slika 2: Scenarij 2 </em>
 </p>
@@ -45,5 +45,15 @@ Tokom vježbe uspostavljena je 5G SA mreža korištenjem AMARI Callbox Classic s
 Nakon toga analizirani su konfiguracijski fajlovi bazne stanice (gNB) u AMARI okruženju. Posebna pažnja posvećena je postavkama vezanim za podatkovni saobraćaj, kao što su mrežni interfejsi, IP adresiranje i način uspostavljanja korisničke podatkovne sesije u 5G SA mreži.
 
 Kroz web interfejs rutera provjerene su i LAN i WiFi postavke, uključujući aktivne mreže, DHCP opseg i status 5G NR-SA veze. Na taj način je potvrđeno da je korisnička oprema uspješno povezana na mrežu i da se podaci pravilno razmjenjuju.
+<p align="center">
+<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 1.jpg" />
+<br>
+<em>Slika 3: Postavke rutera </em>
+</p>
 
+<p align="center">
+<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 2.jpg" />
+<br>
+<em>Slika 3: Postavke rutera </em>
+</p>
 Ova vježba je pomogla boljem razumijevanju kako 5G bazna stanica funkcioniše u praksi, te kako komunicira sa jezgrenom mrežom i korisničkim uređajem.
