@@ -54,6 +54,7 @@ Kroz web interfejs rutera provjerene su i LAN i WiFi postavke, uključujući akt
 <p align="center">
 <img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 1.jpg" />
 <br>
-<em>Slika 3: Postavke rutera </em>
+<em>Slika 4: Postavke rutera </em>
 </p>
+
 ---
