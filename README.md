@@ -46,14 +46,14 @@ Nakon toga analizirani su konfiguracijski fajlovi bazne stanice (gNB) u AMARI ok
 
 Kroz web interfejs rutera provjerene su i LAN i WiFi postavke, uključujući aktivne mreže, DHCP opseg i status 5G NR-SA veze. Na taj način je potvrđeno da je korisnička oprema uspješno povezana na mrežu i da se podaci pravilno razmjenjuju.
 <p align="center">
-<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 1.jpg" />
+<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 2.jpg" />
 <br>
 <em>Slika 3: Postavke rutera </em>
 </p>
 
 <p align="center">
-<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 2.jpg" />
+<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 1.jpg" />
 <br>
 <em>Slika 3: Postavke rutera </em>
 </p>
-Ova vježba je pomogla boljem razumijevanju kako 5G bazna stanica funkcioniše u praksi, te kako komunicira sa jezgrenom mrežom i korisničkim uređajem.
+---
