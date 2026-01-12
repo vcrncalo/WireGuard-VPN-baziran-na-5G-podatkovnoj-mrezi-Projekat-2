@@ -39,7 +39,7 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 **Scenarij 2 :** Ovaj dijagram prikazuje dvosmjernu, sigurnu komunikaciju između klijenta (UE1) i servera (UE2), gdje su obje krajnje tačke povezane putem 5G modema. Svaka strana uspostavlja WireGuard tunel prema AMARI Callbox uređaju, koji djeluje kao centralna tačka za sigurno rutiranje saobraćaja. Na ovaj način je omogućena pouzdana i enkriptovana razmjena podataka između UE1 i UE2 preko mobilne mreže i interneta, uz izolaciju i zaštitu komunikacije.
 
 ---
-## 18.12.2025
+## Konfiguracija rutera
 Tokom vježbe uspostavljena je 5G SA mreža korištenjem AMARI Callbox Classic sistema i 5G modema. Najprije je ostvaren pristup 5G modemu kako bi se provjerila njegova IP adresa i osnovni status mrežne konekcije.
 
 Nakon toga analizirani su konfiguracijski fajlovi bazne stanice (gNB) u AMARI okruženju. Posebna pažnja posvećena je postavkama vezanim za podatkovni saobraćaj, kao što su mrežni interfejsi, IP adresiranje i način uspostavljanja korisničke podatkovne sesije u 5G SA mreži.
@@ -57,4 +57,144 @@ Kroz web interfejs rutera provjerene su i LAN i WiFi postavke, uključujući akt
 <em>Slika 4: Postavke rutera </em>
 </p>
 
+## PLMN Managment
+**PLMN Management :** omogućava upravljanje povezivanjem uređaja na mobilne mreže. Uređaj može automatski birati dostupnu mrežu ili omogućiti ručni odabir operatera.
+
+  PLMN Auto Selection – automatski ili ručni izbor mreže
+
+  Scan – pretraga dostupnih mobilnih mreža
+
+  Available – mreža je dostupna za povezivanje
+
+  Forbidden – mreža nije dozvoljena za trenutnu SIM karticu
+
+  Type – tehnologija mreže (NR5G, LTE, UMTS)
+
+  PLMN – jedinstveni identifikator mobilne mreže
+
+Odabrana mreža se potvrđuje klikom na Apply, dok Cancel poništava izmjene.
+<p align="center">
+<img alt="Scenarij1 drawio" src="Slike/Ruter konfiguracija 3.png" />
+<br>
+<em>Slika 5: Postavke rutera </em>
+</p>
+
 ---
+## Konfiguracija WireGuard tunela 
+# WireGuard manual setup (wg70)
+
+Ovaj dio pokazuje **ručno kreiranje WireGuard tunela** na Linuxu,
+korak-po-korak, koristeći interfejs `wg70`.
+
+> Napomena: Ovo je edukativni / testni setup.  
+> Za produkciju se preporučuje `/etc/wireguard/wg70.conf`.
+
+---
+
+## 1. Instalacija WireGuard-a
+
+```bash
+sudo apt update
+sudo apt install wireguard
+```
+## 2. Generisanje privatnog ključeva
+```bash
+wg genkey > private
+chmod 600 private
+```
+Generiše se privatni ključ koji identifikuje WireGuard interfejs.
+Permisije se ograničavaju radi sigurnosti.
+
+## 3. Kreiranje WireGuard interfejsa
+```bash
+sudo ip link add wg70 type wireguard
+```
+Kreira se virtualni mrežni interfejs tipa WireGuard sa imenom wg70.
+
+## 4. Dodjela IP adrese interfejsu
+```bash
+sudo ip addr add 100.100.129.70/16 dev wg70
+```
+Dodjeljuje se interna VPN IP adresa interfejsu, ova adresa se koristi unutar WireGuard mreže.
+
+## 5. Postavljanje privatnog ključa na interfejs
+```bash
+sudo wg set wg70 private-key ./private
+```
+WireGuard interfejs dobija privatni ključ koji se koristi za autentikaciju i kriptografiju.
+
+## 6. Podizanje (aktivacija) interfejsa
+```bash
+sudo ip link set wg70 up
+```
+Interfejs se aktivira i postaje spreman za komunikaciju.
+
+## 7. Provjera WireGuard statusa
+```bash
+sudo wg
+interface: wg70
+  public key: LgfO7g2vT/yN2QcyuDV8WUBRXTj2rB/sBvK0dvo1vFA=
+  private key: (hidden)
+  listening port: 58713
+```
+Prikazuje informacije o WireGuard interfejsu, uključujući public key i listening port.
+
+<p align="center">
+<img alt="WireGuard tunel" src="Slike/WireGuard kreiranje.png" />
+<br>
+<em>Slika 6: WireGuard tunel  </em>
+</p>
+
+<p align="center">
+<img alt="WireGuard tunel" src="Slike/WireGuard tunel.png" />
+<br>
+<em>Slika 7: WireGuard .conf fajl  </em>
+</p>
+
+Ova slika prikazuje aktivni WireGuard klijentski tunel koji je uspješno importovan iz konfiguracionog *.conf* fajla i pokrenut na Windows uređaju, naziv interfejsa odgovara imenu konfiguracionog fajla, dok su VPN IP adresa i DNS server definisani unutar *[Interface-a]* tog fajla.
+Prikazani public key predstavlja jedinstveni identitet klijenta i mora biti dodat na WireGuard server kao odgovarajući peer kako bi komunikacija bila omogućena.
+Jednom kreiran, ovaj *.conf* fajl može se sigurno distribuirati i koristiti na drugim uređajima i operativnim sistemima (Windows, Linux, macOS, mobilni), bez dodatnih izmjena.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
