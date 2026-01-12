@@ -155,9 +155,13 @@ Ova slika prikazuje aktivni WireGuard klijentski tunel koji je uspješno importo
 Prikazani public key predstavlja jedinstveni identitet klijenta i mora biti dodat na WireGuard server kao odgovarajući peer kako bi komunikacija bila omogućena.
 Jednom kreiran, ovaj *.conf* fajl može se sigurno distribuirati i koristiti na drugim uređajima i operativnim sistemima (Windows, Linux, macOS, mobilni), bez dodatnih izmjena.
 
+<p align="center">
+<img alt="Ping test" src="Slike/Provjera WireGuard tunela.png" />
+<br>
+<em>Slika 7: ICMP provjera  </em>
+</p>
 
-
-
+Pinganje služi za provjeru da li je tunel aktivan i da li postoji mrežna povezanost između dva kraja. Slanjem ping paketa na IP adresu tunela provjerava se da li druga strana odgovara, što znači da je tunel ispravno uspostavljen. Ako se dobije odgovor (reply), tunel radi; ako nema odgovora, postoji problem u konfiguraciji ili mrežnoj vezi.
 
 
 
