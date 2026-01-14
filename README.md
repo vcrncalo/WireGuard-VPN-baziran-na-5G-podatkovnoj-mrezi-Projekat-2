@@ -97,7 +97,7 @@ korak-po-korak, koristeći interfejs `wg70`.
 sudo apt update
 sudo apt install wireguard
 ```
-## 2. Generisanje privatnog ključeva
+## 2. Generisanje privatnog ključa (ili ključeva)
 ```bash
 wg genkey > private
 chmod 600 private
