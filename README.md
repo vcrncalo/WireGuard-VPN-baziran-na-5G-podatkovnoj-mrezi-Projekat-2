@@ -1,5 +1,5 @@
 # Sistemi i servisi mobilnih telekomunikacija
-## Projekat 2 : WireGuard VPN baziran na 5G podatkovnoj mreži 
+# Projekat 2 : WireGuard VPN baziran na 5G podatkovnoj mreži 
 
 Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila Čengić, Emrah Dragolj, Denin Mehanović
 
@@ -21,7 +21,38 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 
 ---
 
-## Arhitektura sistema
+# Uvod i cilj projekta
+
+U ovom repozitoriju sadržaja je implementacija i analiza WireGuard VPN rješenja u okviru 5G standalone (SA) mreže, realizovane korištenjem AMARI Callbox Classic sistema i dva 5G modema.
+
+Cilj projekta je dizajnirati, implementirati i eksperimentalno analizirati sigurnu VPN komunikaciju u dva različita 5G mrežna scenarija, sa fokusom na signalizacijske tokove, rutiranje saobraćaja i pouzdanost veze.
+
+Projekt obuhvata dva glavna scenarija:
+- komunikaciju između korisnika unutar i izvan 5G mreže,
+- komunikaciju između korisnika koji se oba nalaze unutar 5G mreže.
+
+Svi koraci konfiguracije, eksperimentalni rezultati i tehnička dokumentacija dostupni su unutar ovog GitHub repozitorija.
+
+## Spomenuti pojmovi
+
+### 5G Standalone (SA) arhitektura
+
+5G Standalone (SA) arhitektura predstavlja implementaciju 5G mreže koja ne zavisi od postojeće LTE infrastrukture, već koristi namjenski 5G Core i 5G baznu stanicu (gNB). Ovakva arhitektura omogućava potpunu kontrolu nad signalizacijom i korisničkim podatkovnim saobraćajem, kao i podršku za naprednije 5G funkcionalnosti kao što su niske latencije i fleksibilnog upravljanja mrežnim resursima [1]. U okviru ovog projekta 5G SA arhitektura predstavlja osnovu mrežnog okruženja u kojem se realizuje i analizira VPN komunikacija, omogućavajući praćenje signalizacijskih tokova i ponašanja podatkovnog saobraćaja.
+
+### WireGuard VPN
+
+WireGuard je siguran VPN protokol i open-source softver dizajniran sa ciljem jednostavne konfiguracije, visoke efikasnosti i minimalne kompleksnosti. Implementacija WireGuard-a zasniva se na savremenim kriptografskim algoritmima i koristi model identifikacije peer-ova putem kriptografskih ključeva, čime se eliminiše potreba za složenim mehanizmima upravljanja certifikatima i autentikacijom zasnovanom na korisničkim imenima i lozinkama [2].
+WireGuard funkcioniše na nivou mrežnog sloja i uspostavlja virtualne point-to-point interfejse preko kojih se ostvaruje enkriptovana komunikacija.
+
+Primjena VPN mehanizama u 5G mrežama ima značajnu ulogu u obezbjeđivanju izolacije korisničkog saobraćaja, zaštite podataka i logičkog razdvajanja mrežnih tokova, što je detaljno razmatrano u radu [3]. U navedenom kontekstu, VPN rješenja se koriste kao dodatni sigurnosni sloj iznad osnovne 5G mrežne infrastrukture. U okviru ovog projekta WireGuard se koristi kao mehanizam za uspostavljanje sigurnog tunela između krajnjih tačaka, čime se omogućava eksperimentalna analiza zaštićene komunikacije u 5G Standalone mrežnom okruženju.
+
+### AMARI Callbox Classic
+
+AMARI Callbox Classic je platforma namijenjena testiranju i mjerenju mobilnih mreža, koja omogućava emulaciju 5G bazne stanice (gNB) i 5G Core mrežnih funkcija u kontrolisanom okruženju. Sistem se široko koristi u istraživačkim i industrijskim okruženjima za analizu performansi, signalizacije i funkcionalnosti 5G mreža. U kontekstu ovog projekta AMARI Callbox Classic predstavlja centralni element 5G testne mreže, omogućavajući praktičnu realizaciju arhitekture sistema i eksperimentalnu evaluaciju WireGuard VPN komunikacije [4].
+
+---
+
+# Arhitektura sistema
 <p align="center">
 <img alt="Scenarij1 drawio" src="Slike/Scenarij1.drawio.png" />
 <br>
@@ -39,7 +70,7 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 **Scenarij 2 :** Ovaj dijagram prikazuje dvosmjernu, sigurnu komunikaciju između klijenta (UE1) i servera (UE2), gdje su obje krajnje tačke povezane putem 5G modema. Svaka strana uspostavlja WireGuard tunel prema AMARI Callbox uređaju, koji djeluje kao centralna tačka za sigurno rutiranje saobraćaja. Na ovaj način je omogućena pouzdana i enkriptovana razmjena podataka između UE1 i UE2 preko mobilne mreže i interneta, uz izolaciju i zaštitu komunikacije.
 
 ---
-## Konfiguracija rutera
+# Konfiguracija rutera
 Tokom vježbe uspostavljena je 5G SA mreža korištenjem AMARI Callbox Classic sistema i 5G modema. Najprije je ostvaren pristup 5G modemu kako bi se provjerila njegova IP adresa i osnovni status mrežne konekcije.
 
 Nakon toga analizirani su konfiguracijski fajlovi bazne stanice (gNB) u AMARI okruženju. Posebna pažnja posvećena je postavkama vezanim za podatkovni saobraćaj, kao što su mrežni interfejsi, IP adresiranje i način uspostavljanja korisničke podatkovne sesije u 5G SA mreži.
@@ -80,8 +111,8 @@ Odabrana mreža se potvrđuje klikom na Apply, dok Cancel poništava izmjene.
 </p>
 
 ---
-## Konfiguracija WireGuard tunela 
-# WireGuard manual setup (wg70)
+# Konfiguracija WireGuard tunela 
+## WireGuard manual setup (wg70)
 
 Ovaj dio pokazuje **ručno kreiranje WireGuard tunela** na Linuxu,
 korak-po-korak, koristeći interfejs `wg70`.
@@ -91,13 +122,13 @@ korak-po-korak, koristeći interfejs `wg70`.
 
 ---
 
-## 1. Instalacija WireGuard-a
+### 1. Instalacija WireGuard-a
 
 ```bash
 sudo apt update
 sudo apt install wireguard
 ```
-## 2. Generisanje privatnog ključa (ili ključeva)
+### 2. Generisanje privatnog ključa (ili ključeva)
 ```bash
 wg genkey > private
 chmod 600 private
@@ -105,31 +136,31 @@ chmod 600 private
 Generiše se privatni ključ koji identifikuje WireGuard interfejs.
 Permisije se ograničavaju radi sigurnosti.
 
-## 3. Kreiranje WireGuard interfejsa
+### 3. Kreiranje WireGuard interfejsa
 ```bash
 sudo ip link add wg70 type wireguard
 ```
 Kreira se virtualni mrežni interfejs tipa WireGuard sa imenom wg70.
 
-## 4. Dodjela IP adrese interfejsu
+### 4. Dodjela IP adrese interfejsu
 ```bash
 sudo ip addr add 100.100.129.70/16 dev wg70
 ```
 Dodjeljuje se interna VPN IP adresa interfejsu, ova adresa se koristi unutar WireGuard mreže.
 
-## 5. Postavljanje privatnog ključa na interfejs
+### 5. Postavljanje privatnog ključa na interfejs
 ```bash
 sudo wg set wg70 private-key ./private
 ```
 WireGuard interfejs dobija privatni ključ koji se koristi za autentikaciju i kriptografiju.
 
-## 6. Podizanje (aktivacija) interfejsa
+### 6. Podizanje (aktivacija) interfejsa
 ```bash
 sudo ip link set wg70 up
 ```
 Interfejs se aktivira i postaje spreman za komunikaciju.
 
-## 7. Provjera WireGuard statusa
+### 7. Provjera WireGuard statusa
 ```bash
 sudo wg
 interface: wg70
@@ -158,47 +189,22 @@ Jednom kreiran, ovaj *.conf* fajl može se sigurno distribuirati i koristiti na 
 <p align="center">
 <img alt="Ping test" src="Slike/Provjera WireGuard tunela.png" />
 <br>
-<em>Slika 7: ICMP provjera  </em>
+<em>Slika 8: ICMP provjera  </em>
 </p>
 
 Pinganje služi za provjeru da li je tunel aktivan i da li postoji mrežna povezanost između dva kraja. Slanjem ping paketa na IP adresu tunela provjerava se da li druga strana odgovara, što znači da je tunel ispravno uspostavljen. Ako se dobije odgovor (reply), tunel radi; ako nema odgovora, postoji problem u konfiguraciji ili mrežnoj vezi.
 
-
-
-
-
-
-
-
-
-
-
 ---
 
+## Literatura
 
+[1]: https://ieeexplore.ieee.org/abstract/document/9289900
 
+[2]: https://www.wireguard.com/
 
+[3]: https://ieeexplore.ieee.org/abstract/document/10439170
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[4]: https://www.amarisoft.com/test-and-measurement/device-testing/device-products/amari-callbox-classic
 
 
 
