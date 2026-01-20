@@ -177,7 +177,7 @@ Prikazuje informacije o WireGuard interfejsu, uključujući public key i listeni
 </p>
 
 <p align="center">
-<img alt="WireGuard tunel" src="Slike/WireGuard tunel.png" />
+<img alt="WireGuard tunel" src="Slike/wireguard.png" />
 <br>
 <em>Slika 7: WireGuard .conf fajl  </em>
 </p>
