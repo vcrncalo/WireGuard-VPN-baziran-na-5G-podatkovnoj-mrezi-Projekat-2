@@ -37,18 +37,18 @@ Svi koraci konfiguracije, eksperimentalni rezultati i tehnička dokumentacija do
 
 ### 5G Standalone (SA) arhitektura
 
-5G Standalone (SA) arhitektura predstavlja implementaciju 5G mreže koja ne zavisi od postojeće LTE infrastrukture, već koristi namjenski 5G Core i 5G baznu stanicu (gNB). Ovakva arhitektura omogućava potpunu kontrolu nad signalizacijom i korisničkim podatkovnim saobraćajem, kao i podršku za naprednije 5G funkcionalnosti kao što su niske latencije i fleksibilnog upravljanja mrežnim resursima [1]. U okviru ovog projekta 5G SA arhitektura predstavlja osnovu mrežnog okruženja u kojem se realizuje i analizira VPN komunikacija, omogućavajući praćenje signalizacijskih tokova i ponašanja podatkovnog saobraćaja.
+5G Standalone (SA) arhitektura predstavlja implementaciju 5G mreže koja ne zavisi od postojeće LTE infrastrukture, već koristi namjenski 5G Core i 5G baznu stanicu (gNB). Ovakva arhitektura omogućava potpunu kontrolu nad signalizacijom i korisničkim podatkovnim saobraćajem, kao i podršku za naprednije 5G funkcionalnosti kao što su niske latencije i fleksibilnog upravljanja mrežnim resursima [^1]. U okviru ovog projekta 5G SA arhitektura predstavlja osnovu mrežnog okruženja u kojem se realizuje i analizira VPN komunikacija, omogućavajući praćenje signalizacijskih tokova i ponašanja podatkovnog saobraćaja.
 
 ### WireGuard VPN
 
-WireGuard je siguran VPN protokol i open-source softver dizajniran sa ciljem jednostavne konfiguracije, visoke efikasnosti i minimalne kompleksnosti. Implementacija WireGuard-a zasniva se na savremenim kriptografskim algoritmima i koristi model identifikacije peer-ova putem kriptografskih ključeva, čime se eliminiše potreba za složenim mehanizmima upravljanja certifikatima i autentikacijom zasnovanom na korisničkim imenima i lozinkama [2].
+WireGuard je siguran VPN protokol i open-source softver dizajniran sa ciljem jednostavne konfiguracije, visoke efikasnosti i minimalne kompleksnosti. Implementacija WireGuard-a zasniva se na savremenim kriptografskim algoritmima i koristi model identifikacije peer-ova putem kriptografskih ključeva, čime se eliminiše potreba za složenim mehanizmima upravljanja certifikatima i autentikacijom zasnovanom na korisničkim imenima i lozinkama [^2].
 WireGuard funkcioniše na nivou mrežnog sloja i uspostavlja virtualne point-to-point interfejse preko kojih se ostvaruje enkriptovana komunikacija.
 
-Primjena VPN mehanizama u 5G mrežama ima značajnu ulogu u obezbjeđivanju izolacije korisničkog saobraćaja, zaštite podataka i logičkog razdvajanja mrežnih tokova, što je detaljno razmatrano u radu [3]. U navedenom kontekstu, VPN rješenja se koriste kao dodatni sigurnosni sloj iznad osnovne 5G mrežne infrastrukture. U okviru ovog projekta WireGuard se koristi kao mehanizam za uspostavljanje sigurnog tunela između krajnjih tačaka, čime se omogućava eksperimentalna analiza zaštićene komunikacije u 5G Standalone mrežnom okruženju.
+Primjena VPN mehanizama u 5G mrežama ima značajnu ulogu u obezbjeđivanju izolacije korisničkog saobraćaja, zaštite podataka i logičkog razdvajanja mrežnih tokova, što je detaljno razmatrano u radu [^3]. U navedenom kontekstu, VPN rješenja se koriste kao dodatni sigurnosni sloj iznad osnovne 5G mrežne infrastrukture. U okviru ovog projekta WireGuard se koristi kao mehanizam za uspostavljanje sigurnog tunela između krajnjih tačaka, čime se omogućava eksperimentalna analiza zaštićene komunikacije u 5G Standalone mrežnom okruženju.
 
 ### AMARI Callbox Classic
 
-AMARI Callbox Classic je platforma namijenjena testiranju i mjerenju mobilnih mreža, koja omogućava emulaciju 5G bazne stanice (gNB) i 5G Core mrežnih funkcija u kontrolisanom okruženju. Sistem se široko koristi u istraživačkim i industrijskim okruženjima za analizu performansi, signalizacije i funkcionalnosti 5G mreža. U kontekstu ovog projekta AMARI Callbox Classic predstavlja centralni element 5G testne mreže, omogućavajući praktičnu realizaciju arhitekture sistema i eksperimentalnu evaluaciju WireGuard VPN komunikacije [4].
+AMARI Callbox Classic je platforma namijenjena testiranju i mjerenju mobilnih mreža, koja omogućava emulaciju 5G bazne stanice (gNB) i 5G Core mrežnih funkcija u kontrolisanom okruženju. Sistem se široko koristi u istraživačkim i industrijskim okruženjima za analizu performansi, signalizacije i funkcionalnosti 5G mreža. U kontekstu ovog projekta AMARI Callbox Classic predstavlja centralni element 5G testne mreže, omogućavajući praktičnu realizaciju arhitekture sistema i eksperimentalnu evaluaciju WireGuard VPN komunikacije [^4].
 
 ---
 
@@ -198,13 +198,13 @@ Pinganje služi za provjeru da li je tunel aktivan i da li postoji mrežna povez
 
 ## Literatura
 
-[1]: https://ieeexplore.ieee.org/abstract/document/9289900
+[^1]: https://ieeexplore.ieee.org/abstract/document/9289900
 
-[2]: https://www.wireguard.com/
+[^2]: https://www.wireguard.com/
 
-[3]: https://ieeexplore.ieee.org/abstract/document/10439170
+[^3]: https://ieeexplore.ieee.org/abstract/document/10439170
 
-[4]: https://www.amarisoft.com/test-and-measurement/device-testing/device-products/amari-callbox-classic
+[^4]: https://www.amarisoft.com/test-and-measurement/device-testing/device-products/amari-callbox-classic
 
 
 
