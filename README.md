@@ -26,9 +26,9 @@ Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila 
 | RP1 | Dizajn WireGuard VPN-a u 5G mreži | Vedad Crnčalo, Harun Dedović |
 | RP2 | Implementacija podatkovne usluge (5G SA) | Harun Dedović, Denin Mehanović |
 | RP3 | Implementacija VPN-a (scenarij 1) | Džejlana Konjalić, Amila Čengić, Amna Bumbul |
-| RP4 | Implementacija VPN-a (scenarij 2) | Denin Mehanović, Emrah Dragolj |
+| RP4 | Implementacija VPN-a (scenarij 2) | Denin Mehanović, Emrah Dragolj, Amila Čengić |
 | RP5 | Analiza signalizacijskih tokova | Emrah Dragolj, Amna Bumbul, Džejlana Konjalić |
-| RP6 | Dokumentacija i GitHub repozitorij | Amila Čengić,  Vedad Crnčalo |
+| RP6 | Dokumentacija i GitHub repozitorij | Vedad Crnčalo |
 
 ---
 
