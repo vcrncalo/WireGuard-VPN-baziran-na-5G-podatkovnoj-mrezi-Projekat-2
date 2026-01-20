@@ -1,4 +1,4 @@
-## Sistemi i servisi mobilnih telekomunikacija
+# Sistemi i servisi mobilnih telekomunikacija
 # Projekat 2 : WireGuard VPN baziran na 5G podatkovnoj mreži 
 
 Grupa : Vedad Crnčalo, Harun Dedović, Džejlana Konjalić, Amna Bumbul, Amila Čengić, Emrah Dragolj, Denin Mehanović
