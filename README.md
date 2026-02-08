@@ -207,6 +207,52 @@ Pinganje služi za provjeru da li je tunel aktivan i da li postoji mrežna povez
 
 ---
 
+# Implementacija WireGuard VPN-a u 5G SA mreži
+
+WireGuard VPN u ovom projektu koristi se kao dodatni sigurnosni sloj iznad 5G Standalone (SA) mrežne infrastrukture. VPN je implementiran na nivou korisničkog podatkovnog saobraćaja (user plane) i ne utiče na osnovne 5G signalizacijske procedure (registracija, autentikacija i uspostava PDU sesije).
+
+Nakon uspješne registracije korisničke opreme (UE) u 5G SA mrežu i dodjele IP adrese od strane 5G Core mreže, WireGuard se pokreće kao virtuelni mrežni interfejs na krajnjem uređaju. Sav saobraćaj definisan pravilima rutiranja prolazi kroz enkriptovani VPN tunel, dok 5G mreža služi kao transportna infrastruktura.
+
+---
+
+## Logički princip rada WireGuard-a
+
+WireGuard funkcioniše kao virtuelni point-to-point interfejs koji koristi statički definisane kriptografske ključeve za identifikaciju peer-ova. Nakon inicijalnog kriptografskog handshaka, podaci se enkriptuju i enkapsuliraju u UDP pakete koji se prenose preko 5G mreže i interneta.
+
+Sa stanovišta 5G mreže, WireGuard saobraćaj se vidi kao standardni UDP/IP tok, dok su stvarni korisnički podaci zaštićeni end-to-end enkripcijom između krajnjih tačaka.
+
+---
+
+## Scenarij 1: UE unutar 5G mreže ↔ UE izvan 5G mreže
+
+U prvom scenariju jedan WireGuard peer nalazi se unutar 5G SA mreže (UE1), dok se drugi peer (UE2) nalazi izvan 5G mreže i posjeduje javno dostupnu IP adresu.
+
+**Tok implementacije:**
+
+- UE1 se povezuje na 5G SA mrežu putem 5G modema i dobija IP adresu iz 5G Core mreže
+- Na UE1 se kreira WireGuard interfejs sa internom VPN IP adresom
+- UE2 djeluje kao udaljeni uređaj koji je povezan na Wi-Fi mrežu fakulteta
+- UE1 inicira WireGuard konekciju prema UE2 koristeći njegov javni ključ i endpoint adresu
+- Nakon uspješnog handshaka uspostavlja se siguran VPN tunel
+
+Ovim pristupom omogućena je sigurna i pouzdana komunikacija između korisnika unutar 5G mreže i udaljenog sistema izvan nje, pri čemu 5G mreža ima ulogu pristupne mreže.
+
+---
+
+## Scenarij 2: UE unutar 5G mreže ↔ UE unutar 5G mreže
+
+U drugom scenariju oba WireGuard peer-a (UE1 i UE2) nalaze se unutar iste 5G SA mreže, ali se njihova komunikacija dodatno štiti korištenjem VPN tunela.
+
+**Tok implementacije:**
+
+- Oba UE uređaja uspostavljaju sopstvene 5G podatkovne sesije
+- Svaki UE ima zaseban WireGuard interfejs i internu VPN IP adresu
+- WireGuard tunel se koristi za logičko povezivanje UE uređaja, nezavisno od njihove fizičke lokacije u mreži
+- Sav međusobni saobraćaj prolazi kroz enkriptovani VPN tunel
+
+Ovakav scenario omogućava analizu VPN saobraćaja unutar 5G mreže i poređenje ponašanja mreže sa i bez aktivnog VPN-a.
+
+---
 ## Literatura
 
 [^1]: https://ieeexplore.ieee.org/abstract/document/9289900
