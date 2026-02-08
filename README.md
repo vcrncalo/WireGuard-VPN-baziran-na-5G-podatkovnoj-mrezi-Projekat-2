@@ -243,6 +243,20 @@ Ovim pristupom omogućena je sigurna i pouzdana komunikacija između korisnika u
 
 U drugom scenariju oba WireGuard peer-a (UE1 i UE2) nalaze se unutar iste 5G SA mreže, ali se njihova komunikacija dodatno štiti korištenjem VPN tunela.
 
+S obzirom da je isti tunel predviđen i za drugi scenarij, konfiguracija je proširena dodavanjem dodatnog WireGuard tunela kako bi se osigurala nezavisna i paralelna realizacija scenarija 2 bez utjecaja na postojeću konfiguraciju.
+
+<p align="center">
+<img alt="WireGuard tunel" src="Slike/wg80 VPN.png" />
+<br>
+<em>Slika 9: WireGuard VPN tunel (wg80)  </em>
+</p>
+
+<p align="center">
+<img alt="WireGuard conf fajl" src="Slike/wg80 conf file.png" />
+<br>
+<em>Slika 10: WireGuard .conf fajl (wg80)  </em>
+</p>
+
 **Tok implementacije:**
 
 - Oba UE uređaja uspostavljaju sopstvene 5G podatkovne sesije
